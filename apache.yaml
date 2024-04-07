@@ -1,16 +1,16 @@
 ---
 
-- name: 'Manage Apache Deployment' 
-  hosts: redhat 
-  become: true 
-  gather_facts: false 
-  tasks: 
-    - name: 'Install Apache Web Server' 
-      package: 
-        name: 'httpd' 
-        state: 'present' 
-    - name: 'Start and enable web server' 
-      service: 
-        name: 'httpd' 
-        state: 'started' 
+- name: 'Manage Apache Deployment'
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: 'Install Apache Web Server'
+      ansible.builtin.package:
+        name: 'httpd'
+        state: 'present'
+    - name: 'Start and enable web server'
+      ansible.builtin.service:
+        name: 'httpd'
+        state: 'started'
         enabled: true
